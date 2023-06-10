@@ -1,0 +1,21 @@
+janeiro
+
+salario: 3000
+aluguel: 1000
+contaDeLuz: 200
+contaDaAgua: 100
+internet: 100
+transporte: 300
+lazer: 300
+alimentaçao: 500
+
+fevereiro
+
+salario: 3000
+aluguel: 1200
+contaDeLuz: 250
+contaDaAgua: 100
+internet: 100
+transporte: 500
+lazer: 0
+alimentaçao: 1000

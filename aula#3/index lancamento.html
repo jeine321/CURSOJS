@@ -1,0 +1,99 @@
+<html>
+    <script>
+        function arredondar (valor) {
+            return Math.round(valor*100)/100
+        }
+
+        function calcularJuros (valor) {
+            juros = arredondar(valor * 0.1)
+            return juros
+        }
+        
+        function calcularRendimentos (valor) {
+            rendimentos = arredondar(valor * 0.005)
+            console.log(rendimentos)
+            return rendimentos
+        }
+
+        function calcularSaldo (mes, saldoInicial, lancamentos) {
+            console.log(mes)
+            saldo = saldoInicial
+            for (lancamento of lancamentos) {
+                if (lancamento.tipo === "receita") {
+                saldo += lancamento.valor
+               } 
+               if (lancamento.tipo === "despesa") {
+                saldo -= lancamento.valor
+               }
+            }   
+            estaNegativo = saldo < 0
+        if (estaNegativo) {
+            juros = calcularJuros(saldo)
+            saldo = arredondar(saldo + juros)
+        } else {
+            rendimentos = calcularRendimentos(saldo)
+            saldo = arredondar(saldo + rendimentos)
+        }
+        return saldo
+        }
+        saldoInicial = 0
+        lancamentosJaneiro = [
+        {  categoria: "salario", tipo: "receita", valor: 3000 }, 
+        {  categoria: "aluguel", tipo: "despesa", valor: 1000 }, 
+        {  categoria: "connta de luz", tipo: "despesa", valor: 200 }, 
+        {  categoria: "conta de agua", tipo: "despesa", valor: 100 }, 
+        {  categoria: "internet", tipo: "despesa", valor: 100 }, 
+        {  categoria: "trasnporte", tipo: "despesa", valor: 300 }, 
+        {  categoria: "lazer", tipo: "despesa", valor: 300 }, 
+        {  categoria: "alimentaçao", tipo: "despesa", valor: 500 }, 
+        {  categoria: "condominio", tipo: "despesa", valor: 300 },
+        {  categoria: "farmacia", tipo: "despesa", valor: 100 }         
+    ]       
+        saldo1 = calcularSaldo("janeiro", saldoInicial, lancamentosJaneiro)
+        console.log(saldo1)       
+        lancamentosFevereiro = [
+        {  categoria: "salario", tipo: "receita", valor: 3000 }, 
+        {  categoria: "aluguel", tipo: "despesa", valor: 1200 }, 
+        {  categoria: "conta de luz", tipo: "despesa", valor: 250 }, 
+        {  categoria: "conta de agua ", tipo: "despesa", valor: 100 }, 
+        {  categoria: "internet", tipo: "despesa", valor: 100 }, 
+        {  categoria: "transporte", tipo: "despesa", valor: 500 },  
+        {  categoria: "alimentaçao", tipo: "despesa", valor: 1000 },
+        {  categoria: "condominio", tipo: "despesa", valor: 400 }
+    ]       
+        saldo2 = calcularSaldo("fevereiro", saldo1, lancamentosFevereiro)
+        console.log(saldo2)
+        lancamentosMarço = [
+        { categoria: "salario", tipo: "receita", valor: 4000 }, 
+        { categoria: "aluguel", tipo: "despesa", valor: 1200 }, 
+        { categoria: "conta de luz", tipo: "despesa", valor: 200 }, 
+        { categoria: "conta de agua", tipo: "despesa", valor: 100 }, 
+        { categoria: "internet", tipo: "despesa", valor: 200 }, 
+        { categoria: "transporte", tipo: "despesa", valor: 500 }, 
+        { categoria: "lazer", tipo: "despesa", valor: 800 }, 
+        { categoria: "alimentaçao", tipo: "despesa", valor: 1000 }, 
+        { categoria: "condominio", tipo: "despesa", valor: 400 }        
+    ]
+    saldo3 = calcularSaldo("março", saldo2, lancamentosMarço )
+    console.log(saldo3)  
+    acumuladoAno = saldo3
+    console.log("ano")
+    console.log(acumuladoAno)  
+
+    console.log("quantidade de lancamentos em janeiro:", lancamentosJaneiro.length)
+    lancamentosJaneiro.pop()
+    lancamentosJaneiro.pop()
+    lancamentosJaneiro.push({categoria: "financiamento", tipo: "despesa", valor: 200})
+    for (lancamento of lancamentosJaneiro) {
+        console.log(lancamento.categoria, lancamento.tipo, lancamento.valor)
+    } 
+    
+    nome = "Francisco Jeine"
+    idade = 44
+    emal = "fjnobre@"
+    casado = true
+
+    pessoa = {nome: "Francisco Jeine", idade: 38, email: "fjonobre@", casado: true}
+    console.log(pessoa)
+        </script>
+    </html>
